@@ -1,0 +1,16 @@
+Fechas = SELECTCOLUMNS(
+            CALENDARAUTO(12),
+            "Fecha",[Date],
+            "Año",year([Date]),
+            "Mes",month([Date]),
+            "Dia",day([Date]),
+            "Semana del año",WEEKNUM([Date],1),
+            "Dia de la semana",WEEKDAY([Date],2),
+            "Nombre dia de la semana",SWITCH(WEEKDAY([Date],2),1,"Lunes",2,"Martes",3,"Miercoles",4,"Jueves",5,"Viernes",6,"Sabado",7,"Domingo"),
+            "Nombre del mes",SWITCH(month([Date]),1,"Enero",2,"Febrero",3,"Marzo",4,"Abril",5,"Mayo",6,"Junio",7,"Julio",8,"Agosto",9,"Septiembre",10,"Octubre",11,"Noviembre",12,"Diciembre"),
+            "Trimestre",QUARTER([Date]),
+            "Nombre corto dia de la semana",SWITCH(WEEKDAY([Date],2),1,"Lun",2,"Mar",3,"Mie",4,"Jue",5,"Vie",6,"Sab",7,"Dom"),
+            "Nombre corto del mes",SWITCH(month([Date]),1,"Ene",2,"Feb",3,"Mar",4,"Abr",5,"May",6,"Jun",7,"Jul",8,"Ago",9,"Sep",10,"Oct",11,"Nov",12,"Dic"),
+            "Año-Mes",FORMAT(YEAR([Date]),"0000")&"-"&FORMAT(MONTH([Date]),"00"),
+            "Año-Semana",FORMAT(YEAR([Date]),"0000")&"-W"&FORMAT(WEEKNUM([Date],2),"00")
+            )
